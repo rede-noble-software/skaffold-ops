@@ -22,4 +22,5 @@ jobs:
     - name: Skaffold build
       uses: hiberbee/github-action-skaffold@1.19.0
       with:
+        skaffold-version: 2.13.2
         command: build
