@@ -3,7 +3,7 @@ kind: Config
 
 requires:
   - git:
-        repo: ${REF_REPO_SOURCE}
-        path: ${REF_CONFIG_PATH}
-        ref: ${REF_BRANCH}
+        repo: $REF_REPO_SOURCE
+        path: $REF_CONFIG_PATH
+        ref: $REF_BRANCH
         sync: true
