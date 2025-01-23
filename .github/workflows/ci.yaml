@@ -31,3 +31,4 @@ jobs:
         skaffold-version: 2.13.2
         command: build
         verbosity: info
+        repository: skaffold-build-sample
