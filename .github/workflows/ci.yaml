@@ -22,7 +22,12 @@ jobs:
     - name: check env
       run: ls -a && cat skaffold.yaml
     - name: Skaffold build
+      env:
+        REF_BRANCH: ${{ github.event.client_payload.ref }}
+        REF_REPO_SOURCE: ${{ github.event.client_payload.repo_source }}
+        REF_CONFIG_PATH: ${{ github.event.client_payload.config_path }}
       uses: hiberbee/github-action-skaffold@1.19.0
       with:
         skaffold-version: 2.13.2
         command: build
+        verbosity: info
