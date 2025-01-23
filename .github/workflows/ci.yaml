@@ -20,4 +20,6 @@ jobs:
         input: skaffold.yaml
         output: skaffold.yaml
     - name: Skaffold build
-      run: skaffold build
+      uses: hiberbee/github-action-skaffold@1.19.0
+      with:
+        command: build
