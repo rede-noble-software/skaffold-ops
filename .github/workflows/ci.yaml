@@ -1,0 +1,13 @@
+name: Builder
+
+on:
+  repository_dispatch:
+    types: [ triger-event ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: dispatch-build
+      uses: actions/checkout@v3
+    - run: echo  ${{ github.event.client_payload }}
