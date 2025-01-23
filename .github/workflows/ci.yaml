@@ -20,7 +20,7 @@ jobs:
         input: skaffold.yaml
         output: skaffold.yaml
     - name: check env
-      run: cat skaffold.yaml
+      run: ls -a && cat skaffold.yaml
     - name: Skaffold build
       uses: hiberbee/github-action-skaffold@1.19.0
       with:
