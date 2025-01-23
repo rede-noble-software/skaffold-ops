@@ -10,4 +10,14 @@ jobs:
     steps:
     - name: dispatch-build
       uses: actions/checkout@v3
-    - run: echo  ${{ github.event.client_payload }}
+    - name: Repository Dispatch subs
+      uses: danielr1996/envsubst-action@1.0.0
+      env:
+        REF_BRANCH: ${{ github.event.client_payload.ref }}
+        REF_REPO_SOURCE: ${{ github.event.client_payload.repo_source }}
+        REF_PATH: ${{ github.event.client_payload.config_path }}
+      with:
+        input: skaffold.yaml
+        output: skaffold.yaml
+    - name: Skaffold build
+      run: skaffold build
