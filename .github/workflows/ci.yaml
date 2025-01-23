@@ -15,10 +15,10 @@ jobs:
       env:
         REF_BRANCH: ${{ github.event.client_payload.ref }}
         REF_REPO_SOURCE: ${{ github.event.client_payload.repo_source }}
-        REF_PATH: ${{ github.event.client_payload.config_path }}
+        REF_CONFIG_PATH: ${{ github.event.client_payload.config_path }}
       with:
         files: skaffold.yaml
-        patterns: $REF_REPO_SOURCE $REF_PATH $REF_BRANCH
+        patterns: $REF_REPO_SOURCE $REF_CONFIG_PATH $REF_BRANCH
     - name: check env
       run: ls -a && cat skaffold.yaml
     - name: Skaffold build
